@@ -1,6 +1,7 @@
 # Fly me to my destination - It's urgent!!
 
 **Problem statement**
+
 Consider there are **N** airports in the world, each airport has a plane available with limited units of fuel available to fly. 
 
 You are initially positioned at airport **number one** and you have to reach the last airport (**N**) by hiring a **minimum** number of planes. You'd need 1 unit of fuel to fly to the nearest airport from any airport. 
@@ -21,6 +22,7 @@ In the given array, there are 9 airports, the plane at the starting airport has 
 
 
 **Approach**
+
 This solution uses Breadth-first search (BFS), which explores vertices layer by layer starting from the initial vertex. 
 
 It first explores all vertices at distance 1 from the starting vertex, then all vertices at distance 2, and so on. 
