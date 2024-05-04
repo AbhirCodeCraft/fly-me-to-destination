@@ -22,7 +22,7 @@ const findLeastJumpsWithRoute = (airportGraph) => {
     return { jumps: -1, path: [] }; // No path found to reach destination
 }
 
-const getMap = (airports) => {
+const getMap = (airports) => { // Create a route map object for all the airports
     let map = {}; // To register all possible direct destinations from the airports
 
     for (const [i, val] of airports.entries()) {
@@ -53,4 +53,44 @@ It first explores all vertices at distance 1 from the starting vertex, then all 
 This ensures that shorter paths are explored before longer paths.
 
 Once the algorithm finds the first path which leads to the destination, it will be the shortest path available in terms of jumps required.
+*/
+
+/* 
+getMap function explanation -
+It converts an array into an object with airport's serial number as key and all the possible direct destinations (array) as value.
+
+Input - [1, 6, 3, 4, 5, 0, 0, 0, 6]
+Output- 
+{
+  '1': [ 2 ],
+  '2': [ 3, 4, 5, 6, 7, 8 ],
+  '3': [ 4, 5, 6 ],
+  '4': [ 5, 6, 7, 8 ],
+  '5': [ 6, 7, 8, 9 ],
+  '6': [],
+  '7': [],
+  '8': [],
+  '9': []
+}
+*/
+
+/* 
+findLeastJumpsWithRoute function explanation -
+It goes through all the available paths (one flight at a time) for all the airports. 
+Once it reaches the destination, it returns the path.
+If no path reaches the destination it returns '-1'
+
+Input -
+{
+  '1': [ 2 ],
+  '2': [ 3, 4, 5, 6, 7, 8 ],
+  '3': [ 4, 5, 6 ],
+  '4': [ 5, 6, 7, 8 ],
+  '5': [ 6, 7, 8, 9 ],
+  '6': [],
+  '7': [],
+  '8': [],
+  '9': []
+}
+Output - { jumps: 3, path: [ 1, 2, 5, 9 ] }
 */
